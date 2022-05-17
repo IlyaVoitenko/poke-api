@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { useDispatch } from 'react-redux';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import ListPokemons from "./components/ListPokemon's";
+import SelectedPokemon from './components/SelectedPokemon';
+import { getAllPokemons } from './components/useAxios';
 
 function App() {
+  const dispatch = useDispatch();
+  dispatch(getAllPokemons());
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ListPokemons />} />
+          <Route path="/selected-pokemon" element={<SelectedPokemon />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
