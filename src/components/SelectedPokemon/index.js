@@ -6,19 +6,24 @@ import style from './SelectedPokemon.module.css';
 
 const SelectedPokemon = () => {
   const dataPokemon = useSelector(getSelectedPokemon);
+
   const { moves, stats } = dataPokemon;
-  const { name } = dataPokemon.species;
+  const { name } = dataPokemon.species || {};
 
   return (
     <div className="container">
       <img
-        src={dataPokemon.sprites.other.dream_world.front_default}
-        alt={name}
+        src={
+          dataPokemon.species
+            ? dataPokemon.sprites.other.dream_world.front_default
+            : ''
+        }
+        alt={name ? name : null}
       />
-      <p>{name}</p>
+      <p>{name ? name : null}</p>
       <div className={style.paramsPokemont}>
-        <SkillsPokemon moves={moves} />
         <StatsPokemon stats={stats} />
+        <SkillsPokemon moves={moves} />
       </div>
     </div>
   );

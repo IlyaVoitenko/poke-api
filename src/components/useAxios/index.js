@@ -4,10 +4,10 @@ import {
   getPokemonAction,
 } from '../../store/actionCreaters';
 
-export function getAllPokemons() {
+export function getAllPokemons(amauntPokemon = 50) {
   return (dispatch) => {
     return axios
-      .get(`https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0`)
+      .get(`https://pokeapi.co/api/v2/pokemon?limit=${amauntPokemon}&offset=0`)
       .then((data) => {
         dispatch(getPokemonsAction(data.data.results));
       });
