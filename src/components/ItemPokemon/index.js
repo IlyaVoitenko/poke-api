@@ -5,13 +5,18 @@ import { getPokemon } from '../useAxios';
 const ItemPokemon = ({ pokemon }) => {
   const dispatch = useDispatch();
   const { name } = pokemon;
+
   return (
     <div>
-      <span>{name}</span>
+      <span>{name === undefined ? pokemon.pokemon.name : pokemon.name}</span>
       <Link to="/selected-pokemon">
         <button
           onClick={() => {
-            dispatch(getPokemon(name));
+            dispatch(
+              getPokemon(
+                name === undefined ? pokemon.pokemon.name : pokemon.name
+              )
+            );
           }}
         >
           info

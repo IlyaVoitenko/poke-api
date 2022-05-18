@@ -3,6 +3,7 @@ import { getAllPokemons } from '../useAxios';
 import { getArrayPokemons } from './selectors';
 import ItemPokemon from '../ItemPokemon';
 import SearchPokemon from '../SearchPokemon';
+import SortPokemonsByTypes from '../SortPokemonsByTypes';
 import { useEffect, useState } from 'react';
 
 const ListPokemons = () => {
@@ -43,6 +44,7 @@ const ListPokemons = () => {
   return (
     <div>
       <SearchPokemon />
+      <SortPokemonsByTypes />
       {pokemons.map((pokemon, index) => (
         <ItemPokemon key={index} pokemon={pokemon} />
       ))}

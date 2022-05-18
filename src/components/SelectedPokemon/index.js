@@ -5,18 +5,18 @@ import StatsPokemon from './StatsPokemon';
 import style from './SelectedPokemon.module.css';
 
 const SelectedPokemon = () => {
-  const dataPokemon = useSelector(getSelectedPokemon);
-  const { status } = dataPokemon;
-  const { moves, stats } = dataPokemon.data || {};
-  const { name } = dataPokemon.data.species || {};
-  const { front_default } = dataPokemon.data.sprites.other.dream_world || {};
+  const pokemon = useSelector(getSelectedPokemon);
+  const { status } = pokemon;
+  const { moves, stats } = pokemon.data;
+  const { name } = pokemon.data;
+  const { front_default } = pokemon.data.sprites.other.dream_world;
 
   return (
     <div>
       {status === 200 ? (
         <div className="container">
           <img
-            src={dataPokemon.data.species ? front_default : ''}
+            src={pokemon.data.species ? front_default : ''}
             alt={name ? name : null}
           />
           <p>{name ? name : null}</p>
