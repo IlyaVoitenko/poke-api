@@ -17,8 +17,11 @@ export function getPokemon(pokemonName) {
   return (dispatch) => {
     return axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-      .then(({ data }) => {
+      .then((data) => {
         dispatch(getPokemonAction(data));
+      })
+      .catch((error) => {
+        console.log(error.toJSON());
       });
   };
 }

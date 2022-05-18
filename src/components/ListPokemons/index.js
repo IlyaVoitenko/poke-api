@@ -2,7 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPokemons } from '../useAxios';
 import { getArrayPokemons } from './selectors';
 import ItemPokemon from '../ItemPokemon';
+import SearchPokemon from '../SearchPokemon';
 import { useEffect, useState } from 'react';
+
 const ListPokemons = () => {
   const dispatch = useDispatch();
   const pokemons = useSelector(getArrayPokemons);
@@ -38,8 +40,13 @@ const ListPokemons = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return pokemons.map((pokemon, index) => (
-    <ItemPokemon key={index} pokemon={pokemon} />
-  ));
+  return (
+    <div>
+      <SearchPokemon />
+      {pokemons.map((pokemon, index) => (
+        <ItemPokemon key={index} pokemon={pokemon} />
+      ))}
+    </div>
+  );
 };
 export default ListPokemons;
