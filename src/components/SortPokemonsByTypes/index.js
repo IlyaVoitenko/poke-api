@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Form } from 'react-bootstrap';
 import {
   getTypesPokemons,
   getAllPokemons,
@@ -23,16 +24,14 @@ const SortPokemonsByTypes = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <select onChange={({ target }) => slectTypePokemo(target.value)}>
-        <option value="All">All</option>
-        {typesPokemons.map((type, index) => (
-          <option key={index} value={type.name}>
-            {type.name}
-          </option>
-        ))}
-      </select>
-    </div>
+    <Form.Select onChange={({ target }) => slectTypePokemo(target.value)}>
+      <option value="All">All</option>
+      {typesPokemons.map((type, index) => (
+        <option key={index} value={type.name}>
+          {type.name}
+        </option>
+      ))}
+    </Form.Select>
   );
 };
 export default SortPokemonsByTypes;

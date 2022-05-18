@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { getSelectedPokemon } from './selectors';
+import { Card } from 'react-bootstrap';
 import SkillsPokemon from './SkillsPokemon';
 import StatsPokemon from './StatsPokemon';
 import style from './SelectedPokemon.module.css';
@@ -12,14 +13,15 @@ const SelectedPokemon = () => {
   const { front_default } = pokemon.data.sprites.other.dream_world;
 
   return (
-    <div>
+    <Card>
       {status === 200 ? (
         <div className="container">
           <img
+            className={style.img}
             src={pokemon.data.species ? front_default : ''}
             alt={name ? name : null}
           />
-          <p>{name ? name : null}</p>
+          <Card.Title className={style.title}>{name ? name : null}</Card.Title>
           <div className={style.paramsPokemont}>
             <StatsPokemon stats={stats} />
             <SkillsPokemon moves={moves} />
@@ -28,7 +30,7 @@ const SelectedPokemon = () => {
       ) : (
         <div>Pokemon not found</div>
       )}
-    </div>
+    </Card>
   );
 };
 export default SelectedPokemon;

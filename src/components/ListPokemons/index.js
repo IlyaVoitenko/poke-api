@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPokemons } from '../useAxios';
 import { getArrayPokemons } from './selectors';
 import ItemPokemon from '../ItemPokemon';
-import SearchPokemon from '../SearchPokemon';
-import SortPokemonsByTypes from '../SortPokemonsByTypes';
+import { ListGroup } from 'react-bootstrap';
+import NavbarPokemon from '../NavbarPokemon';
 import { useEffect, useState } from 'react';
 
 const ListPokemons = () => {
@@ -43,11 +43,12 @@ const ListPokemons = () => {
 
   return (
     <div>
-      <SearchPokemon />
-      <SortPokemonsByTypes />
-      {pokemons.map((pokemon, index) => (
-        <ItemPokemon key={index} pokemon={pokemon} />
-      ))}
+      <NavbarPokemon />
+      <ListGroup>
+        {pokemons.map((pokemon, index) => (
+          <ItemPokemon key={index} pokemon={pokemon} />
+        ))}
+      </ListGroup>
     </div>
   );
 };

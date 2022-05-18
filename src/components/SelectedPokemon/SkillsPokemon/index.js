@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { ListGroup } from 'react-bootstrap';
+import style from './SkillsPokemon.module.css';
 
 const SkillsPokemon = ({ moves }) => {
   const [movesLength, setMovesLength] = useState(0);
@@ -8,12 +10,16 @@ const SkillsPokemon = ({ moves }) => {
   }, [moves, movesLength]);
 
   return (
-    <ul>
-      <p>Moves :</p>
-      {moves
-        ? moves.map((move, index) => <li key={index}>{move.move.name}</li>)
-        : null}
-    </ul>
+    <div className={style.listMoves}>
+      <ListGroup>
+        <ListGroup.Item>Moves :</ListGroup.Item>
+        {moves
+          ? moves.map((move, index) => (
+              <ListGroup.Item key={index}>{move.move.name}</ListGroup.Item>
+            ))
+          : null}
+      </ListGroup>
+    </div>
   );
 };
 export default SkillsPokemon;

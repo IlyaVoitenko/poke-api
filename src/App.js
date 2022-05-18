@@ -1,11 +1,10 @@
-import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import ListPokemons from './components/ListPokemons';
 import SelectedPokemon from './components/SelectedPokemon';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ListPokemons />} />

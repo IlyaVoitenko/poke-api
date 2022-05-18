@@ -1,15 +1,19 @@
+import { ListGroup } from 'react-bootstrap';
+
 const StatsPokemon = ({ stats }) => {
   return (
-    <ul>
-      <p>stats :</p>
-      {stats
-        ? stats.map((stat, index) => (
-            <li key={index}>
-              {stat.base_stat} {stat.stat.name}
-            </li>
-          ))
-        : null}
-    </ul>
+    <div>
+      <ListGroup>
+        <ListGroup.Item>stats :</ListGroup.Item>
+        {stats
+          ? stats.map((stat, index) => (
+              <ListGroup.Item key={index}>
+                {stat.base_stat} {stat.stat.name}
+              </ListGroup.Item>
+            ))
+          : null}
+      </ListGroup>
+    </div>
   );
 };
 

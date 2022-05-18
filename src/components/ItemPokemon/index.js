@@ -1,16 +1,22 @@
 import { useDispatch } from 'react-redux';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getPokemon } from '../useAxios';
+import { ListGroup } from 'react-bootstrap';
 
 const ItemPokemon = ({ pokemon }) => {
   const dispatch = useDispatch();
   const { name } = pokemon;
 
   return (
-    <div>
-      <span>{name === undefined ? pokemon.pokemon.name : pokemon.name}</span>
+    <ListGroup.Item>
+      <span className="float-start">
+        {name === undefined ? pokemon.pokemon.name : pokemon.name}
+      </span>
       <Link to="/selected-pokemon">
-        <button
+        <Button
+          className="float-end"
+          variant="primary"
           onClick={() => {
             dispatch(
               getPokemon(
@@ -19,10 +25,10 @@ const ItemPokemon = ({ pokemon }) => {
             );
           }}
         >
-          info
-        </button>
+          Info
+        </Button>
       </Link>
-    </div>
+    </ListGroup.Item>
   );
 };
 export default ItemPokemon;
