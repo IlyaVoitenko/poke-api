@@ -1,6 +1,12 @@
+import React from 'react';
 import { ListGroup } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
-const StatsPokemon = ({ stats }) => {
+StatsPokemon.propTypes = {
+  stats: PropTypes.array,
+};
+
+function StatsPokemon({ stats }) {
   return (
     <div>
       <ListGroup>
@@ -15,6 +21,6 @@ const StatsPokemon = ({ stats }) => {
       </ListGroup>
     </div>
   );
-};
+}
 
 export default StatsPokemon;

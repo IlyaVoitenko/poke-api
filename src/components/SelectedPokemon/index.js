@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { getSelectedPokemon } from './selectors';
 import { Card } from 'react-bootstrap';

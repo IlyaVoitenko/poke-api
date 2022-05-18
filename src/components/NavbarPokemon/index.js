@@ -1,3 +1,4 @@
+import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import SearchPokemon from '../SearchPokemon';
 import SortPokemonsByTypes from '../SortPokemonsByTypes';

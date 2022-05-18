@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPokemons } from '../useAxios';
 import { getArrayPokemons } from './selectors';
@@ -38,7 +39,6 @@ const ListPokemons = () => {
   useEffect(() => {
     document.addEventListener('scroll', handlerScroll);
     return () => document.removeEventListener('scroll', handlerScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

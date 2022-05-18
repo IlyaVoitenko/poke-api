@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import ListPokemons from './components/ListPokemons';
 import SelectedPokemon from './components/SelectedPokemon';

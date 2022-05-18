@@ -1,8 +1,14 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
+import PropType from 'prop-types';
 import style from './SkillsPokemon.module.scss';
 
-const SkillsPokemon = ({ moves }) => {
+SkillsPokemon.propTypes = {
+  moves: PropType.array,
+};
+
+function SkillsPokemon({ moves }) {
   const [movesLength, setMovesLength] = useState(0);
 
   useEffect(() => {
@@ -21,5 +27,5 @@ const SkillsPokemon = ({ moves }) => {
       </ListGroup>
     </div>
   );
-};
+}
 export default SkillsPokemon;

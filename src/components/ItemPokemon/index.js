@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -6,6 +8,7 @@ import { ListGroup } from 'react-bootstrap';
 
 const ItemPokemon = ({ pokemon }) => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line react/prop-types
   const { name } = pokemon;
 
   return (
