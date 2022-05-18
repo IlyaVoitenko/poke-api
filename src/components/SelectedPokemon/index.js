@@ -3,7 +3,7 @@ import { getSelectedPokemon } from './selectors';
 import { Card } from 'react-bootstrap';
 import SkillsPokemon from './SkillsPokemon';
 import StatsPokemon from './StatsPokemon';
-import style from './SelectedPokemon.module.css';
+import style from './SelectedPokemon.module.scss';
 
 const SelectedPokemon = () => {
   const pokemon = useSelector(getSelectedPokemon);

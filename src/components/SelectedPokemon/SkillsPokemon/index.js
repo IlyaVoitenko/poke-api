@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
-import style from './SkillsPokemon.module.css';
+import style from './SkillsPokemon.module.scss';
 
 const SkillsPokemon = ({ moves }) => {
   const [movesLength, setMovesLength] = useState(0);
